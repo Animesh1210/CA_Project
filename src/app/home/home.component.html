@@ -1,170 +1,475 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fitness Edge</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYM</title>
 
-    
-
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-      
-    </style>
-    
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<style>
+  body{
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	background-color: black;
+	color: yellowgreen;
+	font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* header section  */
+  
+  .container{
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	display: grid;
+	grid-template-columns: 1fr 4fr 1.3fr;
+	background-color: black;
+	z-index: 1;
+  }
+  
+  .center{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+  
+  .left{
+	  font-size: 35px;
+	  font-weight: bolder;
+  }
+  
+  menu{
+	  display: flex;
+  }
+  
+  menu > li{
+	  margin: 10px;
+	  list-style: none;
+  }
+  
+  menu li a{
+	  text-decoration: none;
+	  color: yellowgreen;
+	  transition-property: all;
+	  transition-duration: .3s;
+	  transition-timing-function: ease-out;
+  }
+  
+  menu li a:hover{
+	  color: white;
+  }
+  
+  button{
+	  cursor: pointer;
+	  color: yellowgreen;
+	  background-color: black;
+	  border-color: yellowgreen;
+	  border-radius: 5px;
+	  padding: 0.5em 2em;
+	  font-size: 17px;
+	  transition-property: all;
+	  transition-duration: .5s;
+	  transition-timing-function: ease-out;
+  }
+  
+  button:hover, button:focus{
+	  background-color: yellowgreen;
+	  color: black; 
+  }
+  
+  
+  
+  /* slider section  */
+  .slideshow{
+	display: grid;
+	grid-template-columns: 0.9fr 1fr 2fr;
+	margin-top: 3vh;
+  }
+  
+  .slider{
+	width: 400px;
+	height: 450px;
+	overflow: hidden;
+  }
+  
+  .slides{
+	width: 323%;
+	height: 450px;
+	display: flex;
+  }
+  
+  .slides input{
+	display: none;
+  }
+  
+  .slide{
+	transition: 1s;
+  }
+  
+  .slide img{
+	width: 400px;
+	height: 450px;
+  }
+  
+  .navigation-manual{
+	position: absolute;
+	width: 400px;
+	margin-top: -35px;
+	display: flex;
+	justify-content: center;
+  }
+  
+  .manual-btn{
+	border: 2px solid yellowgreen;
+	padding: 5px;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: 1s;
+  }
+  
+  .manual-btn:not(:last-child){
+	margin-right: 40px;
+  }
+  
+  .manual-btn:hover{
+	background-color: yellowgreen;
+  }
+  
+  #radio1:checked ~ .first{
+	margin-left: 0%;
+  }
+  #radio2:checked ~ .first{
+	margin-left: -30.97%;
+  }
+  #radio3:checked ~ .first{
+	margin-left: -61.9%;
+  }
+  #radio4:checked ~ .first{
+	margin-left: -93%;
+  }
+  
+  .welcome{
+	color: white;
+	margin-top: 15vh;
+	margin-left: 5vw;
+  }
+  
+  /* contact details  */
+  .detail{
+	display: flex;
+	margin-top: 3vh;
+	margin: 10vh;
+	margin-left: 0;
+  }
+  
+  .location{
+	height: 60px;
+	transform: skew(-40deg);
+	background-color: yellowgreen;
+	color: black;
+	font-size: 20px;
+	font-weight: 540;
+  }
+  
+  .location span{
+	transform: skew(40deg);
+  }
+  
+  .address{ 
+	width: 40%;
+	visibility: hidden;
+	position: relative;
+	animation-name: first;
+	animation-duration: 0.8s;
+	animation-delay: 3s;
+	animation-fill-mode: forwards;
+  }
+  
+  @keyframes first{
+	0%{background: black;  left: 0px; visibility: visible;}
+	100%{left: 15vh; visibility: visible;}
+  }
+  
+  .phone{ 
+	width: 27%;
+	border-top: 4px solid black;
+	border-left: 4px solid black;
+	visibility: hidden;
+	position: relative;
+	margin-top: 15px;
+	animation: second;
+	animation-duration: 0.8s;
+	animation-delay: 3s;
+	animation-fill-mode: forwards;
+  }
+  
+  @keyframes second {
+	0%{background: black; left: 400px; visibility: visible;}
+	100%{left: 0px;visibility: visible;}
+  }
+  
+  
+  /* reveal  */
+  .grid{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+  }
+  
+  .heading{
+	height: 100vh;
+	width: 50vw;
+	font-size: 50px;
+	font-weight: 600;
+	background: yellowgreen;
+	color: black;
+  }
+  
+  .reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: all 1s ease;
+  }
+  
+  .reveal.active{
+	transform: translateY(0px);
+	opacity: 1;
+  }
+  
+  .we{
+	font-size: 50px;
+	font-weight: 600;
+	padding: 20px;
+  }
+  
+  .we img{
+	width: 25vh;
+	height: 25vh;
+  }
+  
+  .train{
+	position: relative;
+	text-align: center;
+  }
+  
+  .train img{
+	height: 100vh;
+	width: 50vw;
+  
+  }
+  
+  .text{
+	position: absolute;
+	font-size: 50px;
+	border: 3px solid white;
+	color: white;
+	font-weight: 600;
+	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	z-index: 100;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+  }
+  
+  .calci{
+	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	color: black;
+	font-size: 20px;
+	text-transform: uppercase;
+	background: yellowgreen;
+	/* text-align: center; */
+	list-style: none;
+	/* padding: 27vh; */
+	font-weight: 600;
+  }
+  
+  .calci h2{
+	font-weight:bolder;
+	font-size: 50px;
+  }
+  
+  .bmi input{
+	width: 300px;
+	background: black;
+	border: none;
+	border-bottom: 2px solid yellowgreen;
+	color: white;
+	padding: 10px;
+	margin: 10px;
+	font-size: 20px;
+  }
+  
+  #result{
+	margin-top: 20px;
+  }
+  
+  footer{
+	height: 10vh;
+	font-size: 20px;
+	color: white;
+  }
+  
+  .fa{
+	padding: 10px;
+	color: white;
+  }
+  
+  
+</style>
+
+
 <body>
-<main>
-  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-    <div class="col-md-5 p-lg-5 mx-auto my-5">
-      <h1 class="display-4 fw-normal">Fitness Edge</h1>
-      <p class="lead fw-normal">Try out any of our group fitness workouts, including Bootcamp, Kickboxing, and Stretching classes! </p>
-      <a class="btn btn-outline-secondary" href="#">Click to register</a>
-    </div>
-    <div class="product-device shadow-sm d-none d-md-block"></div>
-    <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-  </div>
+    <div style="height: 100vh;">
+        
 
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-  </div>
+        <div style="margin-top: 5vh;">
+            <section class="slideshow">
+                <div></div>
+                <div class="slider">
+                    <div class="slides">
+                        <!-- radio button start -->
+                        <input type="radio" name="radio-btn" id="radio1">
+                        <input type="radio" name="radio-btn" id="radio2">
+                        <input type="radio" name="radio-btn" id="radio3">
+                        <input type="radio" name="radio-btn" id="radio4">
 
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-    <div class="bg-primary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-  </div>
+                        <!-- slide image start -->
+                        <div class="slide first">
+                            <img src="https://source.unsplash.com/400x450/?gymnastic" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="https://source.unsplash.com/400x450/?workout" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="https://source.unsplash.com/400x450/?dumbles" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="https://source.unsplash.com/400x450/?gym" alt="">
+                        </div>
+                    </div>
 
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-  </div>
+                    <!-- manual navigation  -->
+                    <div class="navigation-manual">
+                        <label for="radio1" class="manual-btn"></label>
+                        <label for="radio2" class="manual-btn"></label>
+                        <label for="radio3" class="manual-btn"></label>
+                        <label for="radio4" class="manual-btn"></label>
+                    </div>
+                </div>
+                <div>
+                    <div class="welcome">
+                        <h1 style="font-size: xx-large;">Welcome,<br>To our Gym.</h1>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. <br> Minima, hic eligendi sit
+                            voluptatibus
+                            illo rerum!</p>
+                        <button style="margin-top: 2vh;">Become a Member</button>
+                    </div>
+                </div>
+            </section>
+        </div>
 
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+        <section class="detail">
+            <div class="location address center"><span>146, Opp56shops, Apollotower</span></div>
+            <div class="location phone center"><span>+91-755-5978-155</span></div>
+        </section>
     </div>
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-  </div>
-</main>
 
-<footer class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
-      <small class="d-block mb-3 text-muted">&copy; 2017–2021</small>
-    </div>
-    <div class="col-6 col-md">
-      <h5>Features</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="link-secondary" href="#">Cool stuff</a></li>
-        <li><a class="link-secondary" href="#">Random feature</a></li>
-        <li><a class="link-secondary" href="#">Team feature</a></li>
-        <li><a class="link-secondary" href="#">Stuff for developers</a></li>
-        <li><a class="link-secondary" href="#">Another one</a></li>
-        <li><a class="link-secondary" href="#">Last time</a></li>
-      </ul>
-    </div>
-    <div class="col-6 col-md">
-      <h5>Resources</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="link-secondary" href="#">Resource name</a></li>
-        <li><a class="link-secondary" href="#">Resource</a></li>
-        <li><a class="link-secondary" href="#">Another resource</a></li>
-        <li><a class="link-secondary" href="#">Final resource</a></li>
-      </ul>
-    </div>
-    <div class="col-6 col-md">
-      <h5>Resources</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="link-secondary" href="#">Business</a></li>
-        <li><a class="link-secondary" href="#">Education</a></li>
-        <li><a class="link-secondary" href="#">Government</a></li>
-        <li><a class="link-secondary" href="#">Gaming</a></li>
-      </ul>
-    </div>
-    <div class="col-6 col-md">
-      <h5>About</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="link-secondary" href="#">Team</a></li>
-        <li><a class="link-secondary" href="#">Locations</a></li>
-        <li><a class="link-secondary" href="#">Privacy</a></li>
-        <li><a class="link-secondary" href="#">Terms</a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
+    <hr style="padding: 0px;margin: 0px;background-color: grey; border-color: grey;">
 
+    <section>
+        <div class="grid">
+            <div class="heading center">WHY JOIN US</div>
+            <div style="text-align: center;">
+                <div class="we reveal"><img src="img/coach.png" alt=""></div>
+                <div class="we reveal"><img src="img/care.png" alt=""></div>
+                <div class="we reveal"><img src="img/connect.png" alt=""></div>
+            </div>
+        </div>
+    </section>
 
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <section>
+        <div class="grid">
+            <div class="train">
+                <img src="img/emily-sea-coiWR0gT8Cw-unsplash.jpg" alt="">
+                <div class="text">GYMNASTIC</div>
+            </div>
+            <div class="sticky heading center">WHAT WE TRAIN</div>
+        </div>
+
+        <div class="grid">
+            <div class="train">
+                <img src="img/victor-freitas-hOuJYX2K5DA-unsplash.jpg" alt="">
+                <div class="text">WEIGHTLIFTING</div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="train">
+                <img src="img/gabin-vallet-JVnLqWGWVzs-unsplash.jpg" alt="">
+                <div class="text">CARDIO</div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="train">
+                <img src="img/scott-webb-U5kQvbQWoG0-unsplash.jpg" alt="">
+                <div class="text">STRENGTH</div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="train stickover">
+                <img src="img/logan-weaver-CS9ptdGhE0M-unsplash.jpg" alt="">
+                <div class="text">BOXING</div>
+            </div>
+        </div>
+    </section>
+
+    <hr style="padding: 0px;margin: 0px;background-color: grey; border-color: grey;">
     
+    <section class="grid">
+        <div class="center" style="width: 50vw; height: 90vh; background: yellowgreen;">
+            <div class="calci">
+                <h2>BMI Calculator</h2>
+            </div>
+        </div>
+        <div class="center bmi">
+            <div>
+                <div>
+                    <input type="text" id="height" placeholder="height (in cm)">
+                </div>
+                <div>
+                    <input type="text" id="weight" placeholder="weight (in kg)">
+                </div>
+                <div class="center">
+                    <button style="margin-top: 15px;" onclick="calculator()">Calculate</button>
+                </div>
+                <div id="result" class="center"></div>
+            </div>
+        </div>
+    </section>
+    
+    <hr style="padding: 0px;margin: 0px;background-color: grey; border-color: grey;">
 
-      
-  </body>
+    <footer class="grid">
+        <div class="center">
+            @copywrite 2021
+        </div>
+        <div class="center icon">
+            <a href="#" class="fa fa-instagram"></a>
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-youtube"></a>
+        </div>
+    </footer>
+
+    <script src="index.js">
+    </script>
+</body>
+
 </html>
-
+Footer
