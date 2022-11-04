@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { BmiComponent } from './bmi/bmi.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    NavBarComponent
+    NavBarComponent,
+    BmiComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     RouterModule.forRoot([
       {path: 'login', component: LoginComponent},
       {path: 'Register', component: RegisterComponent},
-      {path: 'Home', component: HomeComponent}
+      {path: 'Home', component: HomeComponent},
+      {path: 'bmi', component: BmiComponent}
     ]),
   ],
   providers: [],
