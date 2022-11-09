@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { BmiComponent } from './bmi/bmi.component';
 
 const routes: Routes = [
-  
+  {path: '', component: HomeComponent},   //fixed landing page (home to null route)!
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'Home', component: HomeComponent},
