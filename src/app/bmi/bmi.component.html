@@ -1,67 +1,75 @@
-<style>
-    calci{
-	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	color: black;
-	font-size: 20px;
-	text-transform: uppercase;
-	background: yellowgreen;
-	/* text-align: center; */
-	list-style: none;
-	/* padding: 27vh; */
-	font-weight: 600;
-  }
-  
-  .calci h2{
-	font-weight:bolder;
-	font-size: 50px;
-  }
-  
-  .bmi input{
-	width: 300px;
-	background: black;
-	border: none;
-	border-bottom: 2px solid yellowgreen;
-	color: white;
-	padding: 10px;
-	margin: 10px;
-	font-size: 20px;
-  }
-  
-  #result{
-	margin-top: 20px;
-  }
-  
-  footer{
-	height: 10vh;
-	font-size: 20px;
-	color: white;
-  }
-  
-  .fa{
-	padding: 10px;
-	color: white;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="icon.png" />
+    <!-- <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script> -->
+    <title>BMI Calculator</title>
+  </head>
+
+  <body>
+    <div>
+      <h2>BMI Calculator</h2>
+      <form id="form">
+      <p class="text">Height</p>
+      <input type="number" id="h" class="h" />
+        <p class="text">Weight</p>
+        <input type="number" id="w" class="w" />
+        <p id="result" class="result"></p>
+        <p id="resultStatus" class="resultStatus"></p>
+        <button type="submit" id="btn" onclick="bmi()" class="btn">Calculate</button>
+        <input id="btn" type="button" onclick="myFunction()" value="Reset">
+      </form>
+      <h2 id="info">Please enter height[cm] and weight[kg]</h2>
+    </div>
+  </body>
+<!-- <script defer>
+    "use strict";
+const button = document.querySelector(".btn");
+const result = document.querySelector(".result");
+const resultStatus = document.querySelector(".resultStatus");
+const heightInput = document.querySelector(".h");
+const weightInput = document.querySelector(".w");
+
+    function bmi(){
+    event.preventDefault();
+    const height = Number(heightInput.value);
+    const weight = Number(weightInput.value);
+    const bmi = weight / (((height / 100) * height) / 100);
+    const bmio = Math.round(bmi);
+    if (bmio <= 18.5) {
+        result.innerHTML = "Your BMI is " + bmio;
+        resultStatus.innerHTML = "Sorry you are underweight ❌";
+    }
+    else if (bmio >= 18.6 && bmio <= 24.9) {
+        result.innerHTML = "Your BMI is " + bmio;
+        resultStatus.innerHTML = "Congrats your weight is perfect ✅";
+    }
+    else if (bmio >= 25 && bmio <= 29.9) {
+        result.innerHTML = "Your BMI is " + bmio;
+        resultStatus.innerHTML = "Sorry you are overweight ❌";
+    }
+    else if (bmio >= 30 && bmio <= 39.9) {
+        result.innerHTML = "Your BMI is " + bmio;
+        resultStatus.innerHTML = "Sorry you are obese ❌";
+    }
+    else if (bmio >= 40 && bmio >= 39.9) {
+        result.innerHTML = "Your BMI is " + bmio;
+        resultStatus.innerHTML = "Sorry you are extremely obese ❌";
+    }
 
 
-<section class="grid">
-    <div class="center" style="width: 50vw; height: 90vh; background: yellowgreen;">
-        <div class="calci">
-            <h2>BMI Calculator</h2>
-        </div>
-    </div>
-    <div class="center bmi">
-        <div>
-            <div>
-                <input type="text" id="height" placeholder="height (in cm)">
-            </div>
-            <div>
-                <input type="text" id="weight" placeholder="weight (in kg)">
-            </div>
-            <div class="center">
-                <button style="margin-top: 15px;" onclick="calculator()">Calculate</button>
-            </div>
-            <div id="result" class="center"></div>
-        </div>
-    </div>
-</section>
+}
+function myFunction()
+{   
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("resultStatus").innerHTML = "";
+}
+
+  </script> -->
+
+</html>
